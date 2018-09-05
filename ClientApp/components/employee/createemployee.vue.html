@@ -3,19 +3,19 @@
 		<h1>Create Employee</h1>
 		<form v-on:submit.prevent="createEmployee">
 			<div class="form-group">
-				<label for="add-id">Id</label>
+				<label for="create-id">Id</label>
 				<input type="number" class="form-control" id="create-id" v-model.number="employee.id" required />
 			</div>
 			<div class="form-group">
-				<label for="add-name">Name</label>
+				<label for="create-name">Name</label>
 				<input class="form-control" id="create-name" v-model="employee.name" required />
 			</div>
 			<div class="form-group">
-				<label for="add-roll">Role</label>
+				<label for="create-roll">Role</label>
 				<input class="form-control" id="create-role" v-model="employee.role" required />
 			</div>
 			<div class="form-group">
-				<label for="add-skill">Skill</label>
+				<label for="create-skill">Skill</label>
 				<input class="form-control" id="create-skill" v-model="employee.skill" required />
 			</div>
 			<button type="submit" class="btn btn-primary">Create</button>
