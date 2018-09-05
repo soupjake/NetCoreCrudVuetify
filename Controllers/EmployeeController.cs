@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using ERSWebApp.Models;
+using AspSpaCrudVue.Models;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace ERSWebApp.Controllers
+namespace AspSpaCrudVue.Controllers
 {
     [Route("api/[controller]")]
     public class EmployeeController : Controller
