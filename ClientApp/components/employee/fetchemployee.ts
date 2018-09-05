@@ -5,6 +5,7 @@ import { Employee } from '../../models/employee';
 @Component
 export default class FetchEmployeeComponent extends Vue {
   employees: Employee[] = [];
+  mount: boolen = false;
 
 	mounted() {
 		this.loadEmployees();
@@ -15,6 +16,7 @@ export default class FetchEmployeeComponent extends Vue {
 			.then(response => response.json() as Promise<Employee[]>)
 			.then(data => {
 				this.employees = data;
+				mount = true;
 			});
 	}
 	
