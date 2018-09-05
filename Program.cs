@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace ERSWebApp
+namespace AspSpaCrudVue
 {
     public class Program
     {
