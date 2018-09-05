@@ -19,12 +19,19 @@ export default class FetchEmployeeComponent extends Vue {
 	}
 
 	deleteEmployee(id: number) {
-		var ans = confirm("Do you want to delete employee" + id + "?");
+		var ans = confirm("Do you want to delete Employee " + id + "?");
 		if (ans) {
 			fetch('api/Employee/Delete?id=' + id, {
 				method: 'DELETE'
 			})
-				.then(response => { this.loadEmployees(); })
+				.then(response => response.json() as Promise<number>)
+				.then(data => {
+					if (data < 1) {
+						alert("Failed to delete employee. Please make sure you are still connected.");
+					} else {
+						this.loadEmployees();
+					}
+				})
 		}
 	}
 }
