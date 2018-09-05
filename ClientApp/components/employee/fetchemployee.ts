@@ -17,6 +17,14 @@ export default class FetchEmployeeComponent extends Vue {
 				this.employees = data;
 			});
 	}
+	
+	createEmployee() {
+		this.$router.push("/createemployee");
+	}
+
+	editEmployee(id: number) {
+		this.$router.push("/editemployee/" + id);
+	}
 
 	deleteEmployee(id: number) {
 		var ans = confirm("Do you want to delete Employee " + id + "?");
