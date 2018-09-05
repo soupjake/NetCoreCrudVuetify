@@ -100,7 +100,6 @@ namespace AspSpaCrudVue.Controllers
             }
             if (employee != null)
             {
-                System.Diagnostics.Debug.WriteLine(employee.Skill);
                 string query = "UPDATE EmployeeTable SET Name=@Name, Role=@Role, Skill=@Skill WHERE Id=@Id;";
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
