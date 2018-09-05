@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ERSWebApp.Controllers
+namespace AspSpaCrudVue.Controllers
 {
     public class HomeController : Controller
     {
