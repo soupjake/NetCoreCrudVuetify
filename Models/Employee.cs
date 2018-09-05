@@ -1,4 +1,4 @@
-﻿namespace ERSWebApp.Models
+﻿namespace AspSpaCrudVue.Models
 {
     public class Employee
     {
