@@ -1,12 +1,9 @@
 <template>
     <div>
         <h1>Employees</h1>
-
         <p>This component demonstrates fetching data from the server.</p>
 		<p>
-			<router-link to="/createemployee">
-				<a>Create New Employee</a>
-			</router-link> 
+			<button class="btn btn-primary" v-on:click="createEmployee">Create New Employee</button>
 		</p>
         <table v-if="employees.length" class="table">
             <thead>
@@ -25,15 +22,12 @@
 					<td>{{ employee.skill }}</td>
 					<td>
 					<td>
-						<router-link :to="'/editemployee/' + employee.id">
-							<a>Edit</a> |
-						</router-link>
-						<a @click="deleteEmployee(employee.id)">Delete</a>
+						<button class="btn btn-default" v-on:click="editEmployee(employee.id)">Edit</button>
+						<button class="btn btn-default" v-on:click="deleteEmployee(employee.id)">Delete</button>
 					</td>
 				</tr>
             </tbody>
         </table>
-
         <p v-else><em>Loading...</em></p>
     </div>
 </template>
