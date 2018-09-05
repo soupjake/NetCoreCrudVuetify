@@ -31,7 +31,7 @@ namespace AspSpaCrudVue.Controllers
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
-                    return new List<Employee>() { new Employee() { Id = 1, Name = "failed", Role = "failed", Skill = "failed" } };
+                    return new List<Employee>();
                 }
             }
         }
