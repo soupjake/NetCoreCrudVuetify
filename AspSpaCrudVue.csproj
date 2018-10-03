@@ -8,21 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\components\employee\createemployee.ts" />
-    <None Remove="ClientApp\components\employee\editemployee.ts" />
-    <None Remove="ClientApp\models\employee.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\components\employee\editemployee.ts" />
-    <TypeScriptCompile Include="ClientApp\components\employee\createemployee.ts" />
-    <TypeScriptCompile Include="ClientApp\models\employee.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
