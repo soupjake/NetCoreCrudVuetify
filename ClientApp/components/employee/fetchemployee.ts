@@ -4,19 +4,27 @@ import { Employee } from '../../models/employee';
 
 @Component
 export default class FetchEmployeeComponent extends Vue {
-  employees: Employee[] = [];
-  mount: boolen = false;
+  	employees: Employee[] = [];
+	loading: boolean = false;
+	search: string = "";
+	headers: object[] = [
+		{ text: 'Id', value: 'id' },
+		{ text: 'Name', value: 'name' },
+		{ text: 'Role', value: 'role' },
+		{ text: 'Skill', value: 'skill' },
+	];
 
 	mounted() {
 		this.loadEmployees();
 	}
 
 	loadEmployees() {
+		this.loading = true;
 		fetch('api/Employee/GetEmployees')
 			.then(response => response.json() as Promise<Employee[]>)
 			.then(data => {
 				this.employees = data;
-				mount = true;
+				this.loading = false;
 			});
 	}
 	
