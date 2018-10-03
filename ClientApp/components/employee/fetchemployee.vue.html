@@ -1,35 +1,41 @@
 <template>
-    <div>
-        <h1>Employees</h1>
-        <p>This component demonstrates fetching data from the server.</p>
-		<p>
-			<button class="btn btn-primary" v-on:click="createEmployee">Create New Employee</button>
-		</p>
-        <table v-if="mount" class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Skill</th>
-                </tr>
-            </thead>
-            <tbody>
-				<tr v-for="employee in employees">
-					<td>{{ employee.id }}</td>
-					<td>{{ employee.name }}</td>
-					<td>{{ employee.role }}</td>
-					<td>{{ employee.skill }}</td>
-					<td>
-					<td>
-						<button class="btn btn-default" v-on:click="editEmployee(employee.id)">Edit</button>
-						<button class="btn btn-default" v-on:click="deleteEmployee(employee.id)">Delete</button>
-					</td>
-				</tr>
-            </tbody>
-        </table>
-        <p v-else><em>Loading...</em></p>
-    </div>
+	<v-layout column align-center>
+		<v-flex>
+			<v-card>
+				<v-toolbar flat class="tabletoolbar">
+					<v-flex xs4>
+						<v-toolbar-title>Employees</v-toolbar-title>
+					</v-flex>
+					<v-flex xs4>
+						<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
+					</v-flex>
+					<v-flex xs4 class="text-xs-right">
+						<v-btn flat color="secondary" v-on:click.native="createEmployee">Create</v-btn>
+					</v-flex>
+				</v-toolbar>
+				<v-data-table :headers="headers" :items="employees" :search="search" :loading="loading" item-key="id" expand>
+					<v-progress-linear slot="progress" color="primary" indeterminate />
+					<template slot="items" slot-scope="props">
+						<tr @click="props.expanded = !props.expanded">
+							<td>{{ props.item.id }}</td>
+							<td>{{ props.item.name }}</td>
+							<td>{{ props.item.role }}</td>
+							<td>{{ props.item.skill }}</td>
+						</tr>
+					</template>
+					<template slot="expand" slot-scope="props">
+						<v-card flat="flat">
+							<v-layout justify-center>
+								<v-btn color="secondary" flat v-on:click.native="editEmployee(props.item.id)">Edit</v-btn>
+								<v-btn color="secondary" flat v-on:click.native="viewEmployee(props.item.id)">View</v-btn>
+								<v-btn color="secondary" flat v-on:click.native="deleteEmployee(props.item.id)">Delete</v-btn>
+							</v-layout>
+						</v-card>
+					</template>
+				</v-data-table>
+			</v-card>
+		</v-flex>
+	</v-layout>
 </template>
 
 <script src="./fetchemployee.ts"></script>
