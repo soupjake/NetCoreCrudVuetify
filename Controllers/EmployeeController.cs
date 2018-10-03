@@ -13,7 +13,7 @@ namespace AspSpaCrudVue.Controllers
     [Route("api/[controller]")]
     public class EmployeeController : Controller
     {
-        string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Source\\ERSWebApp\\ESRWebApp\\ERSWebAppDB.mdf;Integrated Security=True";
+        string connString = "connstring";
 
         [HttpGet]
         [Route("GetEmployees")]
