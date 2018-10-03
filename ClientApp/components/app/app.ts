@@ -7,4 +7,6 @@ import { Component } from 'vue-property-decorator';
     }
 })
 export default class AppComponent extends Vue {
+	drawer: boolean = false;
+	dark: boolean = false;
 }
