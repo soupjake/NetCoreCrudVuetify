@@ -1,32 +1,15 @@
 <template>
-    <div class="main-nav">
-        <div class="navbar navbar-inverse">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">AspSpaCrudVue</a>
-            </div>
-            <div class="clearfix"></div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <router-link to="/" :exact="true">
-                            <span class="glyphicon glyphicon-home"></span> Home
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/fetchemployee">
-                            <span class="glyphicon glyphicon-th-list"></span> Employees
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	<v-list>
+		<v-list-tile v-for="item in menuItems" :key="item.title" @click="" :to="item.path">
+			<v-list-tile-action>
+				<v-icon>{{item.icon}}</v-icon>
+			</v-list-tile-action>
+			<v-list-tile-content>
+				<v-list-tile-title>
+					{{item.title}}
+				</v-list-tile-title>
+			</v-list-tile-content>
+		</v-list-tile>
+	</v-list>
 </template>
-
-<style src="./navmenu.css" />
+<script src="./navmenu.ts"></script>
