@@ -8,8 +8,19 @@
 			<v-toolbar-title>TemplateWebApp</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items>
+				<v-menu offset-y>
+					<v-btn slot="activator" icon>
+						<v-icon>brush</v-icon>
+					</v-btn>
+					<v-list>
+						<v-list-tile v-for="(item, index) in colours"
+									 v-on:click="themeColour(index)">
+							<v-avatar :color="item"></v-avatar>
+						</v-list-tile>
+					</v-list>
+				</v-menu>
 				<v-btn icon @click="dark = !dark">
-					<v-icon v-model="dark" dark>brightness_6</v-icon>
+					<v-icon v-model="dark" dark>invert_colors</v-icon>
 				</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
