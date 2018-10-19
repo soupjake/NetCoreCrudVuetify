@@ -16,7 +16,7 @@ export default class AppComponent extends Vue {
 		switch (colour) {
 			case 0:
 				this.$vuetify.theme.primary = "ED1C24";
-				this.$vuetify.theme.secondary = "f36368";
+				this.$vuetify.theme.secondary = "F36368";
 				break;
 			case 1:
 				this.$vuetify.theme.primary = "E91E63";
