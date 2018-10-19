@@ -7,8 +7,8 @@ import Vuetify from 'vuetify';
 Vue.use(VueRouter);
 Vue.use(Vuetify, {
 	theme: {
-		primary: 'ED1C24',
-		secondary: 'F36368',
+		primary: 'F44336',
+		secondary: 'FF8A80',
 		accent: 'AF0E14', 
 		error: 'AF0E14'
 	}
