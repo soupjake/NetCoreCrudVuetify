@@ -13,7 +13,6 @@ export default class AppComponent extends Vue {
 	];
 
 	themeColour(colour: number) {
-		console.log(colour);
 		switch (colour) {
 			case 0:
 				this.$vuetify.theme.primary = "ED1C24";
