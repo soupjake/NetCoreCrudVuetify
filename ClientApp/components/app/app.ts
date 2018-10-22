@@ -28,8 +28,8 @@ export default class AppComponent extends Vue {
 		setCookie('ers-colour', colour);
 		switch (colour) {
 			case 0:
-				this.$vuetify.theme.primary = "ED1C24";
-				this.$vuetify.theme.secondary = "F36368";
+				this.$vuetify.theme.primary = "F44336";
+				this.$vuetify.theme.secondary = "FF8A80";
 				break;
 			case 1:
 				this.$vuetify.theme.primary = "E91E63";
