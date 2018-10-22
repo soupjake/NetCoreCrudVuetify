@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
+import { getCookie, setCookie } from 'tiny-cookie';
+
 
 @Component({
 	components: {
@@ -10,13 +12,24 @@ export default class AppComponent extends Vue {
 	drawer: boolean = false;
 	dark: boolean = false;
 	colours: string[] = ["red", "pink", "purple", "indigo", "blue", "teal", "green", "orange"
-	];
+ ];
+
+	mounted() {
+		this.themeColour(Number(getCookie('ers-colour')));
+		this.dark = JSON.parse(getCookie('ers-dark'));
+	}
+
+	themeDark() {
+		this.dark = !this.dark;
+		setCookie('ers-dark', this.dark);
+	}
 
 	themeColour(colour: number) {
+		setCookie('ers-colour', colour);
 		switch (colour) {
 			case 0:
-				this.$vuetify.theme.primary = "F44336";
-				this.$vuetify.theme.secondary = "FF8A80";
+				this.$vuetify.theme.primary = "ED1C24";
+				this.$vuetify.theme.secondary = "F36368";
 				break;
 			case 1:
 				this.$vuetify.theme.primary = "E91E63";
