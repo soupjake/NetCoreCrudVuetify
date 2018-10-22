@@ -13,6 +13,7 @@ Vue.use(Vuetify, {
 		error: 'AF0E14'
 	}
 });
+Vue.config.devtools = true
 
 const routes = [
     { path: '/', component: require('./components/home/home.vue.html').default },
