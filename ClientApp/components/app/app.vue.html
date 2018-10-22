@@ -14,14 +14,14 @@
 					</v-btn>
 					<v-list>
 						<v-list-tile v-for="(item, index) in colours"
-							     		 key="index"
+							     		 :key="index"
 							     		 avatar
 									 v-on:click="themeColour(index)">
 							<v-avatar :color="item"></v-avatar>
 						</v-list-tile>
 					</v-list>
 				</v-menu>
-				<v-btn icon @click="dark = !dark">
+				<v-btn icon v-on:click="themeDark()">
 					<v-icon v-model="dark" dark>invert_colors</v-icon>
 				</v-btn>
 			</v-toolbar-items>
