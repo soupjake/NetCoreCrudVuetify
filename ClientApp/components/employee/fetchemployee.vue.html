@@ -40,7 +40,7 @@
 		<v-flex class="text-xs-center mb-4" xs12>
 			<h4>Employees</h4>
 			<v-divider />
-			<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
+			<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details box/>
 		</v-flex>
 		<v-data-iterator :items="employees" :search="search" :loading="loading" row wrap>
 			<v-flex slot="item" slot-scope="props" class="mb-4" xs12>
