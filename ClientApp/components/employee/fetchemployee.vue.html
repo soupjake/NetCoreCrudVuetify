@@ -1,6 +1,6 @@
 <template>
-	<v-layout column align-center>
-		<v-flex>
+	<v-layout column justify-center v-if="$vuetify.breakpoint.smAndUp">
+		<v-flex xs11>
 			<v-card>
 				<v-toolbar flat class="tabletoolbar">
 					<v-flex xs4>
@@ -35,6 +35,53 @@
 				</v-data-table>
 			</v-card>
 		</v-flex>
+	</v-layout>
+	<v-layout v-else column>
+		<v-flex class="text-xs-center mb-4" xs12>
+			<h4>Employees</h4>
+			<v-divider />
+			<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
+		</v-flex>
+		<v-data-iterator :items="employees" :search="search" :loading="loading" row wrap>
+			<v-flex slot="item" slot-scope="props" class="mb-4" xs12>
+				<v-card>
+					<v-card-title>
+						<h4>{{ props.item.id }} - {{ props.item.name }}</h4>
+						<v-spacer />
+						<v-menu left>
+							<v-btn slot="activator" icon class="ma-0">
+								<v-icon>more_vert</v-icon>
+							</v-btn>
+							<v-list>
+								<v-list-tile v-on:click.native="createEmployee">
+									<v-list-tile-title>Create</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile v-on:click.native="editEmployee(props.item.id)">
+									<v-list-tile-title>Edit</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile v-on:click.native="viewEmployee(props.item.id)">
+									<v-list-tile-title>View</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile v-on:click.native="deleteEmployee(props.item.id)">
+									<v-list-tile-title>Delete</v-list-tile-title>
+								</v-list-tile>
+							</v-list>
+						</v-menu>
+					</v-card-title>
+					<v-divider class="ma-0" />
+					<v-list dense>
+						<v-list-tile>
+							<v-list-tile-content>Role:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.role }}</v-list-tile-content>
+						</v-list-tile>
+						<v-list-tile>
+							<v-list-tile-content>Skill:</v-list-tile-content>
+							<v-list-tile-content class="align-end">{{ props.item.skill }}</v-list-tile-content>
+						</v-list-tile>
+					</v-list>
+				</v-card>
+			</v-flex>
+		</v-data-iterator>
 	</v-layout>
 </template>
 
