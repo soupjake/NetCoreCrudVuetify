@@ -10,14 +10,6 @@ table{
 	background-color: #424242 !important;
 }
 
-.theme--light.v-card {
-	background-color: #f5f5f5 !important;
-}
-
-.theme--dark.v-card{
-	background-color: #212121 !important;
-}
-
 @media print {
 	.container.fluid {
 		padding: 0;
