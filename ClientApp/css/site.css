@@ -10,17 +10,15 @@ table{
 	background-color: #424242 !important;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-	transition-duration: 0.1s;
-	transition-property: opacity;
-	transition-timing-function: ease;
+.fade-enter-active, .fade-leave-active {
+	transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.fade-enter,
-.fade-leave-active {
-	opacity: 0
+.fade-enter, .fade-leave-to {
+	transform: translateY(-15px);
+	opacity: 0;
 }
+
 
 @media print {
 	.container.fluid {
