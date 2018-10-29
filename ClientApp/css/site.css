@@ -33,6 +33,15 @@ table {
 		height: 0;
 		visibility: hidden;
 	}
+	
+	aside[style] {
+		display: none !important;
+		width: 0px !important;
+	}
+
+	main[style] {
+		padding: 64px 0px 32px 0px !important;
+	}
 
 	span {
 		display: none;
