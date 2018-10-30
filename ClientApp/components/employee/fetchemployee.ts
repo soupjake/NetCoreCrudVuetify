@@ -4,9 +4,12 @@ import { Employee } from '../../models/employee';
 
 @Component
 export default class FetchEmployeeComponent extends Vue {
-  	employees: Employee[] = [];
+  employees: Employee[] = [];
 	loading: boolean = false;
+	failed: boolean = false;
+	dialog: boolean = false;
 	search: string = "";
+	selected: number = 0;
 	headers: object[] = [
 		{ text: 'Id', value: 'id' },
 		{ text: 'Name', value: 'name' },
@@ -36,20 +39,24 @@ export default class FetchEmployeeComponent extends Vue {
 		this.$router.push("/editemployee/" + id);
 	}
 
-	deleteEmployee(id: number) {
-		var ans = confirm("Do you want to delete Employee " + id + "?");
-		if (ans) {
-			fetch('api/Employee/Delete?id=' + id, {
-				method: 'DELETE'
+	openDelete(selected: number) {
+		this.selected = selected;
+		this.dialog = true;
+	}
+
+	deleteEmployee() {
+		this.failed = false;
+		this.dialog = false;
+		fetch('api/Employee/Delete?id=' + this.selected, {
+			method: 'DELETE'
+		})
+			.then(response => response.json() as Promise<number>)
+			.then(data => {
+				if (data < 1) {
+					this.failed = true;
+				} else {
+					this.loadEmployees();
+				}
 			})
-				.then(response => response.json() as Promise<number>)
-				.then(data => {
-					if (data < 1) {
-						alert("Failed to delete employee. Please make sure you are still connected.");
-					} else {
-						this.loadEmployees();
-					}
-				})
-		}
 	}
 }
