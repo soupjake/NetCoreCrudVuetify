@@ -10,7 +10,7 @@
 				<v-btn color="secondary" v-on:click="createEmployee">Submit</v-btn>
 				<v-btn color="secondary" v-on:click="clear">Clear</v-btn>
 				<v-btn color="secondary" v-on:click="cancel">Cancel</v-btn>
-				<v-snackbar v-model="failed" color="red" timeout="5000">Failed to create employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
+				<v-snackbar v-model="failed" color="red">Failed to create employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
 			</v-form>
 		</v-flex>
 	</v-layout>
