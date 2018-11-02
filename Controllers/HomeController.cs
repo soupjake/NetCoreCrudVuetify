@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspSpaCrudVue.Controllers
+namespace NetCoreCrudVuetify.Controllers
 {
     public class HomeController : Controller
     {
