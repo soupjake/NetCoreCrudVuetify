@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using AspSpaCrudVue.Models;
+using NetCoreCrudVuetify.Models;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace AspSpaCrudVue.Controllers
+namespace NetCoreCrudVuetify.Controllers
 {
     [Route("api/[controller]")]
     public class EmployeeController : Controller
