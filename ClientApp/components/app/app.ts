@@ -16,16 +16,16 @@ export default class AppComponent extends Vue {
 
 	mounted() {
 		this.themeColour(Number(getCookie('ers-colour')));
-		this.dark = JSON.parse(getCookie('ers-dark'));
+		this.dark = getCookie('ers-dark') == 'true' ? true : false;
 	}
 
 	themeDark() {
 		this.dark = !this.dark;
-		setCookie('ers-dark', this.dark);
+		setCookie('ers-dark', this.dark.toString());
 	}
 
 	themeColour(colour: number) {
-		setCookie('ers-colour', colour);
+		setCookie('ers-colour', colour.toString());
 		switch (colour) {
 			case 0:
 				this.$vuetify.theme.primary = "F44336";
