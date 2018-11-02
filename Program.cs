@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace AspSpaCrudVue
+namespace NetCoreCrudVuetify
 {
     public class Program
     {
