@@ -1,4 +1,4 @@
-﻿namespace AspSpaCrudVue.Models
+namespace NetCoreCrudVuetify.Models
 {
     public class Employee
     {
