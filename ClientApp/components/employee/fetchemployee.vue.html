@@ -10,7 +10,7 @@
 						<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details />
 					</v-flex>
 					<v-flex xs4 class="text-xs-right">
-						<v-btn flat color="secondary" v-on:click.native="createEmployee">Create</v-btn>
+						<v-btn flat color="accent" v-on:click.native="createEmployee">Create</v-btn>
 					</v-flex>
 				</v-toolbar>
 				<v-data-table :headers="headers" :items="employees" :search="search" :loading="loading" item-key="id" expand>
@@ -26,9 +26,9 @@
 					<template slot="expand" slot-scope="props">
 						<v-card flat="flat">
 							<v-layout justify-center>
-								<v-btn color="secondary" flat v-on:click.native="editEmployee(props.item.id)">Edit</v-btn>
-								<v-btn color="secondary" flat v-on:click.native="viewEmployee(props.item.id)">View</v-btn>
-								<v-btn color="secondary" flat v-on:click.native="openDelete(props.item.id)">Delete</v-btn>
+								<v-btn color="accent" flat v-on:click.native="editEmployee(props.item.id)">Edit</v-btn>
+								<v-btn color="accent" flat v-on:click.native="viewEmployee(props.item.id)">View</v-btn>
+								<v-btn color="accent" flat v-on:click.native="openDelete(props.item.id)">Delete</v-btn>
 							</v-layout>
 						</v-card>
 					</template>
