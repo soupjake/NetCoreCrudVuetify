@@ -2,7 +2,6 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { getCookie, setCookie } from 'tiny-cookie';
 
-
 @Component({
 	components: {
 		MenuComponent: require('../navmenu/navmenu.vue.html').default
@@ -11,53 +10,53 @@ import { getCookie, setCookie } from 'tiny-cookie';
 export default class AppComponent extends Vue {
 	drawer: boolean = false;
 	dark: boolean = false;
-	colours: string[] = ["red", "pink", "purple", "indigo", "blue", "teal", "green", "orange"
- ];
+	colours: string[] = ["red", "pink", "purple", "indigo", "blue", "teal", "green", "orange"];
 
 	mounted() {
-		this.themeColour(Number(getCookie('ers-colour')));
-		this.dark = getCookie('ers-dark') == 'true' ? true : false;
+		this.themeColour(Number(getCookie('twa-colour')));
+		this.$vuetify.theme.error = "AF0E14";
+		this.dark = getCookie('twa-dark') == 'true' ? true : false;
 	}
 
 	themeDark() {
 		this.dark = !this.dark;
-		setCookie('ers-dark', this.dark.toString());
+		setCookie('twa-dark', this.dark.toString());
 	}
 
 	themeColour(colour: number) {
-		setCookie('ers-colour', colour.toString());
+		setCookie('twa-colour', colour.toString());
 		switch (colour) {
 			case 0:
-				this.$vuetify.theme.primary = "F44336";
-				this.$vuetify.theme.secondary = "FF8A80";
+				this.$vuetify.theme.primary = "ED1C24";
+				this.$vuetify.theme.accent = "F36368";
 				break;
 			case 1:
 				this.$vuetify.theme.primary = "E91E63";
-				this.$vuetify.theme.secondary = "FF80AB";
+				this.$vuetify.theme.accent = "FF80AB";
 				break;
 			case 2:
 				this.$vuetify.theme.primary = "9C27B0";
-				this.$vuetify.theme.secondary = "EA80FC";
+				this.$vuetify.theme.accent = "EA80FC";
 				break;
 			case 3:
 				this.$vuetify.theme.primary = "3F51B5";
-				this.$vuetify.theme.secondary = "8C9EFF";
+				this.$vuetify.theme.accent = "8C9EFF";
 				break;
 			case 4:
 				this.$vuetify.theme.primary = "2196F3";
-				this.$vuetify.theme.secondary = "82B1FF";
+				this.$vuetify.theme.accent = "82B1FF";
 				break;
 			case 5:
 				this.$vuetify.theme.primary = "009688";
-				this.$vuetify.theme.secondary = "A7FFEB";
+				this.$vuetify.theme.accent = "A7FFEB";
 				break;
 			case 6:
 				this.$vuetify.theme.primary = "4CAF50";
-				this.$vuetify.theme.secondary = "B9F6CA";
+				this.$vuetify.theme.accent = "B9F6CA";
 				break;
 			case 7:
 				this.$vuetify.theme.primary = "FF9800";
-				this.$vuetify.theme.secondary = "FFD180";
+				this.$vuetify.theme.accent = "FFD180";
 				break;
 		}
 	}
