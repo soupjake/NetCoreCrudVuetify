@@ -7,8 +7,8 @@
 				<v-text-field v-model="employee.name" label="Name" :rules="[rules.required]" box disabled/>
 				<v-text-field v-model="employee.role" label="Role" :rules="[rules.required]" box/>
 				<v-text-field v-model="employee.skill" label="Skill" :rules="[rules.required]" box/>
-				<v-btn color="secondary" v-on:click="editEmployee">Submit</v-btn>
-				<v-btn color="secondary" v-on:click="cancel">Cancel</v-btn>
+				<v-btn color="accent" v-on:click="editEmployee">Submit</v-btn>
+				<v-btn color="accent" v-on:click="cancel">Cancel</v-btn>
 				<v-snackbar v-model="failed" color="error">Failed to edit employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
 			</v-form>
 			<v-progress-circular v-else color="secondary" indeterminate />
