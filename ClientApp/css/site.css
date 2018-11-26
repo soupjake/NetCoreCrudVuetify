@@ -2,6 +2,11 @@ table {
 	width: 100%;
 }
 
+a {
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
 .theme--light.v-toolbar.tabletoolbar {
 	background-color: white !important;
 }
