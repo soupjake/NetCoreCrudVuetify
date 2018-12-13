@@ -3,7 +3,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -35,17 +36,14 @@ module.exports = (env) => {
             filename: '[name].js',
             publicPath: 'dist/'
         },
-        plugins: [
+				plugins: [
+						new CleanWebpackPlugin(bundleOutputDir),
             new VueLoaderPlugin(),
             new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify(isDevBuild ? 'development' : 'production')
                 }
             }),
-            new webpack.DllReferencePlugin({
-                context: __dirname,
-                manifest: require('./wwwroot/dist/vendor-manifest.json')
-            })
         ].concat(isDevBuild ? [
             // Plugins that apply in development builds only
             new webpack.SourceMapDevToolPlugin({

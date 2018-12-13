@@ -1,6 +1,6 @@
 <template>
 	<v-app id="inspire" :dark="dark">
-		<v-navigation-drawer persistent clipped disable-resize-watcher v-model="drawer" app>
+		<v-navigation-drawer persistant clipped disable-resize-watcher v-model="drawer" width="300" app>
 			<MenuComponent></MenuComponent>
 		</v-navigation-drawer>
 		<v-toolbar color="primary" dark fixed clipped-left app>
@@ -14,25 +14,25 @@
 					</v-btn>
 					<v-list>
 						<v-list-tile v-for="(item, index) in colours"
-							     		 :key="index"
-							     		 avatar
+									 :key="index"
+									 avatar 
 									 v-on:click="themeColour(index)">
-							<v-avatar :color="item"></v-avatar>
+						<v-avatar :color="item"></v-avatar>
 						</v-list-tile>
 					</v-list>
 				</v-menu>
 				<v-btn icon v-on:click="themeDark()">
-					<v-icon v-model="dark" dark>invert_colors</v-icon>
+					<v-icon v-model="dark">invert_colors</v-icon>
 				</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
 		<main>
 			<v-content>
-				<v-container fluid>
-					<v-slide-x-transition mode="out-in">
-						<router-view></router-view>
-					</v-slide-x-transition>
-				</v-container>
+					<v-container fluid>
+						<v-slide-x-transition mode="out-in">
+							<router-view v-bind:selecteddate="selecteddate"></router-view>
+						</v-slide-x-transition>
+					</v-container>
 			</v-content>
 		</main>
 		<v-footer color="primary" class="pa-3" app fixed>
@@ -42,3 +42,4 @@
 	</v-app>
 </template>
 <script src="./app.ts"></script>
+

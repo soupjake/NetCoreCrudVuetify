@@ -1,15 +1,15 @@
 <template>
 	<v-layout justify-center text-xs-center>
-		<v-flex lg4 md5 sm6 xs8>
+		<v-flex lg4 md6 sm8 xs12>
 			<v-form ref="form" lazy-validation v-if="!loading">
-				<h3>Edit Employee</h3>
+				<p class="title">Edit Employee</p>
 				<v-text-field v-model="employee.id" label="Id" :rules="[rules.required, rules.number]" maxlength="8" box disabled/>
 				<v-text-field v-model="employee.name" label="Name" :rules="[rules.required]" box disabled/>
 				<v-text-field v-model="employee.role" label="Role" :rules="[rules.required]" box/>
 				<v-text-field v-model="employee.skill" label="Skill" :rules="[rules.required]" box/>
 				<v-btn color="accent" v-on:click="editEmployee">Submit</v-btn>
 				<v-btn color="accent" v-on:click="cancel">Cancel</v-btn>
-				<v-snackbar v-model="failed" color="error">Failed to edit employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
+				<v-snackbar v-model="failed" color="error" timeout="5000">Failed to edit employee!<v-btn dark flat @click="failed = false">Close</v-btn></v-snackbar>
 			</v-form>
 			<v-progress-circular v-else color="primary" indeterminate />
 		</v-flex>

@@ -1,20 +1,14 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en-gb">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <base href="~/" />
-
-    <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/dist/site.css" asp-append-version="true" />
-    </environment>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="NetCoreCrudVuetify" />
+	<title>@ViewData["Title"]</title>
+	<base href="~/" />
 </head>
 <body>
-    @RenderBody()
-
-    <script src="~/dist/vendor.js" asp-append-version="true"></script>
-    @RenderSection("scripts", required: false)
+	@RenderBody()
+	@RenderSection("scripts", required: false)
 </body>
 </html>

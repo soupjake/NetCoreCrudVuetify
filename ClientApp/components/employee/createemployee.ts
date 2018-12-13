@@ -13,7 +13,7 @@ export default class CreateEmployeeComponent extends Vue {
 		number: (value: string) => /^\d+(\d{1,2})?$/.test(value) || 'Value must be number e.g. "8" or "10"',
 		decimal: (value: string) => /^\d+(\.\d{1,2})?$/.test(value) || 'Value must be decimal e.g. "8.0" or "7.5"'
 	}
-	
+
 	failed: boolean = false;
 	employee: Employee = {
 		id: 0,
